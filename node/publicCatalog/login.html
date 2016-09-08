@@ -1,0 +1,19 @@
+<html >
+<head>
+    <title>Login AngularJS</title>
+    <script src="angular.min.js"></script>
+    <script src="login.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body ng-app="myapp">
+    <div ng-controller="noteController">
+        <div class="login">
+            <p>Login: <input type="text" ng-model="login"></p>
+            <p>Password: <input type="text" ng-model="password"></p>
+            <button ng-click="doLogin(login, password)">LOGIN</button>
+        </div>
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html >
+<head>
+    <title>Hello AngularJS</title>
+    <script src="angular.min.js"></script>
+    <script src="notes.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body ng-app="myapp">
+    <div ng-controller="noteController">
+        <div ng-repeat="note in notes">
+            <p class="note">{{note.order}}----{{note.text}} ------ {{note.date | date: 'HH:mm dd.MM.yyyy'}}</p>
+            <button ng-click="remove(note._id)">REMOVE</button>
+            <button ng-click="toTop(note._id)">send to top</button>
+
+        </div>
+
+        Add note:<br>
+        <textarea rows="10" cols="50" ng-model="text"></textarea>
+        <button ng-click="add()">Add note</button>
+
+
+
+
+    </div>
+</body>
+</html>

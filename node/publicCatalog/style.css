@@ -1,0 +1,26 @@
+.calculator{
+    border: 1px solid black;
+    width: 20%;
+
+}
+
+.button{
+	width: 30%;
+	margin:3%;
+	background: gray;
+	text-align: center;
+}
+
+.note {
+	background-color:#EEE;
+	padding:5px;
+	width:80%;
+	border:1px solid black;
+	margin:10px;
+}
+.login{
+	border: 1px solid black;
+	width: 300px;
+	text-align: center;
+	padding: 20px;
+}
