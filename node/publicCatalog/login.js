@@ -6,6 +6,11 @@ var c = console;
     
     $scope.doLogin = function(login, password){
         console.log(login, password)
+        $http.post("/doLogin", {login: login, password: password})
+            .success(function() {
+                $scope.text = "";
+                update();
+            });
     }
 
     var update = function() {
