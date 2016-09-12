@@ -84,6 +84,28 @@ app.get('/minimalOrder', function(req, res){
 });
 
 
+db.collection('sections', function(error, sections) {
+	db.sections = sections;
+});
+app.get("/sections", function(req,res) {
+	db.sections.find(req.query).toArray(function(err, items) {
+		res.send(items);
+	});
+});
+
+app.post("/sections/replace", function(req,resp) {
+	// do not clear the list
+	if (req.body.length==0) {
+		resp.end();
+	} 
+	db.sections.remove({}, function(err, res) {
+		if (err) console.log(err);
+		db.sections.insert(req.body, function(err, res) {
+			if (err) console.log("err after insert",err);
+			resp.end();
+		});
+	});
+});
 
 app.listen(3000, function(){
 	console.log('Server started at port 3000!')
