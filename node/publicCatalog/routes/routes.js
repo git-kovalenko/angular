@@ -5,8 +5,12 @@ myAppModule.config(function($routeProvider) {
 	when('/notes', {
 		templateUrl: 'routes/notes/notes_task8.html',
 		controller: 'noteController'
-	}).
-	otherwise({
+	})
+	.when('/validation', {
+		templateUrl: 'routes/validation/validation.html',
+		controller: 'formController'
+	})
+	.otherwise({
 		redirectTo: '/'
 	});
 });

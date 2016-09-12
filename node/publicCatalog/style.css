@@ -24,3 +24,9 @@
 	text-align: center;
 	padding: 20px;
 }
+.valid{
+	background: lightgreen;
+}
+.invalid{
+	background: pink;
+}

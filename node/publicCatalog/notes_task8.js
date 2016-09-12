@@ -1,40 +1,14 @@
 
-myAppModule.controller("noteController", function($scope, $http, $interval, $q) {
+myAppModule.controller("noteController", function($scope, $http, $interval) {
 var c = console;    
     $scope.notes = [];
     $scope.order = 0;
-
-    /*var update = function() {
-    var params = {params:{section:$scope.activeSection}};
-        $http.get("/notes", params)
+    var update = function() {
+        $http.get("/notes")
             .success(function(notes) {
                 $scope.notes = notes;
             });
-    };*/
-    var update = function(){
-        var params = {params:{section:$scope.activeSection}};
-        // $q.all([
-        //     $http.get("/notes", params)
-        // ])
-        // .then(function(notes) {
-        //     $scope.notes = notes[0].data;
-        // });
-
-        function asyncGetNotes() {
-            return $q(function(resolve, reject) {
-                setTimeout(function() {
-                    resolve($http.get("/notes", params))
-                }, 50);
-            });
-        }
-        var promise = asyncGetNotes();
-        promise.then(function(notes) {
-            $scope.notes = notes.data;
-        }, function(reason) {
-          alert('Failed: ' + reason);
-        });
-
-    }
+    };
     update();
 
     $scope.add = function() {
@@ -83,6 +57,13 @@ var c = console;
         update();
     }
 
+    var update = function() {
+    var params = {params:{section:$scope.activeSection}};
+        $http.get("/notes", params)
+            .success(function(notes) {
+                $scope.notes = notes;
+            });
+    };
 
     $scope.writeSections = function() {
         if ($scope.sections && $scope.sections.length>0) {
@@ -105,7 +86,5 @@ var c = console;
         $scope.writeSections();
         update();
     }
-
-
 
 });

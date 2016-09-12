@@ -39,10 +39,9 @@ var counter = 0;
 
 app.post("/doLogin", function(req, res) {
 	c.log(req.body)
-	db.notes.insert(req.body);
-	res.end();
+	// db.notes.insert(req.body);
 	c.log('--- logged :');
-	c.log(req.body)
+	res.end();
 });
 
 
