@@ -10,6 +10,10 @@ myAppModule.config(function($routeProvider) {
 		templateUrl: 'routes/validation/validation.html',
 		controller: 'formController'
 	})
+	.when('/register', {
+		templateUrl: 'routes/userForm/userForm.html',
+		controller: 'UserFormController'
+	})
 	.otherwise({
 		redirectTo: '/'
 	});
